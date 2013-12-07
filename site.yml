@@ -1,0 +1,10 @@
+---
+# This playbook deploys a simple Jenkins CI server proxied by Nginx in a 
+# Debian or Ubuntu system.
+
+- hosts: jenkins-servers
+  remote_user: '{{ login_user }}'
+  sudo: yes
+
+  roles:
+    - jenkins-ci

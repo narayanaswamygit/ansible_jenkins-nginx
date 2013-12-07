@@ -1,0 +1,2 @@
+[jenkins-servers]
+{{ server_name }}:{{ server_ssh_port }}

@@ -1,0 +1,35 @@
+---
+- name: Install Nginx web server
+  apt: pkg=nginx state=present update_cache=yes
+
+- name: Configure Nginx web server
+  template: src=nginx.conf dest=/etc/nginx/nginx.conf
+
+- name: Install python-software-properties
+  apt: pkg=python-software-properties state=installed update-cache=yes
+
+- name: Add Jenkins CI repositories to APT sources list
+  apt_repository: repo='deb http://pkg.jenkins-ci.org/debian binary/' state=present
+
+- name: Add keychain for Jenkins CI repositories
+  apt_key: url=http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key state=present
+
+- name: Install Jenkins CI server
+  apt: pkg=jenkins state=latest update_cache=yes
+
+- name: Ensure persistent iptables rules
+  apt: pkg=iptables-persistent state=present
+
+- name: Deploy new iptables rules to hide standard Jenkins port
+  template: src=iptables-save dest=/etc/iptables/rules.v4
+
+- name: Configure Nginx to serve Jenkins
+  template: src=jenkins.conf dest=/etc/nginx/sites-available/jenkins.conf
+
+- name: Remove Nginx default configuration
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: Enable Jenkins Nginx configuration
+  file: src=/etc/nginx/sites-available/jenkins.conf dest=/etc/nginx/sites-enabled/jenkins.conf state=link
+  notify: restart nginx
+

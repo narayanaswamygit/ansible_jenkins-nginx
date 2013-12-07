@@ -1,0 +1,7 @@
+http_jenkins_port: 8080
+http_standard_port: 80
+
+# Update this with your server name and a valid user.
+server_name: '127.0.0.1'
+server_ssh_port: 22
+login_user: 'vagrant'
