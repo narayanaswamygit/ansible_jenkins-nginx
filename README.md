@@ -1,4 +1,4 @@
-Deploy Jenkins CI server with ansible
+Deploy Jenkins CI server with Ansible
 =====================================
 An [Ansible](http://www.ansibleworks.com/) playbook to easily deploy Jenkins CI
 servers in [Debian](http://www.debian.org) OSs (Tested on Debian 7.2 _Wheezy_).
@@ -12,7 +12,7 @@ ensures that standard Jenkins port 8080 is unreachable from the outside.
 Try it out
 ----------
 Want to try the playbook? You can easily set up a VM using [Vagrant](http://docs.vagrantup.com/v2/installation/index.html)
-and then run drectly the ansible-playbook command for it:
+and then run directly the ansible-playbook command for it:
 
     vagrant box add debian-7.2 https://dl.dropboxusercontent.com/u/197673519/debian-7.2.0.box
     vagrant init debian-7.2
@@ -27,7 +27,7 @@ Launch the VM:
 
 Run Ansible playbook:
 
-    ansible-playbook site.xml
+    ansible-playbook site.yml
 
 Once finished, check it out in your browser using the localhost port 9000 (the
 way to access port 80 of your running VM, remember we configured it before). You
