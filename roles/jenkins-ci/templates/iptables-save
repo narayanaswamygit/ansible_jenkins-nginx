@@ -1,7 +1,0 @@
-*filter
-:INPUT ACCEPT [911:575428]
-:FORWARD ACCEPT [0:0]
-:OUTPUT ACCEPT [1347:904215]
--A INPUT -s 127.0.0.1/32 -p tcp -m tcp --dport 8080 -j ACCEPT
--A INPUT -p tcp -m tcp --dport 8080 -j DROP
-COMMIT
