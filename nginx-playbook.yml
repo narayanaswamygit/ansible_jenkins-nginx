@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: web servers
   become: yes
   tasks:
 
