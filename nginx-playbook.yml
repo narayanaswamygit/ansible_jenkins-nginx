@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: web servers
   become: yes
   tasks:
 
