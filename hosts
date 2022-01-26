@@ -1,2 +1,2 @@
 [web servers]
-{{ srinivas }}:{{ 13.91.245.128 }}
+13.91.245.128 ansible_user=azureuser
