@@ -1,5 +1,6 @@
+---
 - hosts: sample
-  become: yes
+  become: true
   tasks:
 
     - name: update
@@ -15,3 +16,4 @@
   handlers:
     - name: restart nginx
       service: name=nginx state=reloaded
+...
